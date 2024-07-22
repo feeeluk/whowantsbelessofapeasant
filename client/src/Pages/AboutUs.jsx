@@ -1,11 +1,11 @@
-import { NavBar } from "./NavBar";
+import { NavBar } from "../components/NavBar";
 
-export default function AboutUs() {
+export function AboutUs() {
 
 
     return (
         <div>
-            <NavBar />
+
             <section>
                 <h1>About us</h1>
                 <p>blah blah blah.....</p>
