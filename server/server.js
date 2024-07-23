@@ -25,7 +25,7 @@ app.get('/', (request, response) => {
 app. get('/quizzes', async (request, response) => {
     try{
         const data = await db.query(`
-                                    SELECT quizzes.quiz_name, categories.category_name
+                                    SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name
                                     FROM quizzes
                                     JOIN categories
                                     ON quizzes.quiz_category_id = category_id

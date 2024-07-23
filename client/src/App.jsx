@@ -4,8 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { NavBar } from "./components/NavBar"
 import { Route, Routes } from 'react-router-dom'
-import { AboutUs } from './Pages/AboutUs'
 import { Home } from './Pages/Home'
+import { AboutUs } from './Pages/AboutUs'
+import Quiz from './Pages/Quiz'
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<AboutUs />} />
+        <Route path="/quiz/:id" element={<Quiz />} />
       </Routes>
     </main>
 
