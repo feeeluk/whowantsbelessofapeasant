@@ -22,16 +22,32 @@ app.get('/', (request, response) => {
     response.json({message: `Root`})
 })
 
+
+app.get('/quiz/:id', async(request, response) =>{
+    const id = request.params.id
+    const quizDetails = await db.query(`
+        SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
+        FROM quizzes
+        JOIN categories
+        ON quizzes.quiz_category_id = categories.category_id
+        JOIN questions
+        ON questions.questions_quiz_id = quizzes.quiz_id
+        WHERE quiz_id = $1`, [id])
+        response.json(quizDetails.rows)
+    })
+
+
+
 app. get('/quizzes', async (request, response) => {
     try{
-        const data = await db.query(`
+        const quizzes = await db.query(`
                                     SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name
                                     FROM quizzes
                                     JOIN categories
                                     ON quizzes.quiz_category_id = category_id
                                     `)
         
-        response.json(data.rows)
+        response.json(quizzes.rows)
     }
      catch (error){
         response.json(error)
@@ -40,7 +56,7 @@ app. get('/quizzes', async (request, response) => {
 
 app. get('/quiz_details', async (request, response) => {
     try{
-        const data = await db.query(`
+        const allQuizDetails = await db.query(`
                                     SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
                                     FROM quizzes
                                     JOIN categories
@@ -50,7 +66,7 @@ app. get('/quiz_details', async (request, response) => {
                                     WHERE quiz_id != 0
                                     `)
         
-        response.json(data.rows)
+        response.json(allQuizDetails.rows)
     }
      catch (error){
         response.json(error)
@@ -86,8 +102,6 @@ app. get('/leaderboard', async (request, response) => {
         response.json(error)
      }
 })
-
-
 
 
 app.listen(PORT, () => {
