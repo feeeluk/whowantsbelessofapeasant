@@ -13,6 +13,7 @@ export function NavBar() {
                 <ol className="flex flex-row items-center">
                     <li><Link to="/" className="p-2.5 text-slate-200 cursor-pointer">Home</Link></li>
                     <li><Link to="/aboutus" className="p-2.5 text-slate-200 cursor-pointer">About Us</Link></li>
+                    <li><Link to="/leaderboard" className="p-2.5 text-slate-200 cursor-pointer">Leaderboard</Link></li>
                 </ol>
             </header>
         </div>

@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Home } from './Pages/Home'
 import { AboutUs } from './Pages/AboutUs'
 import Quiz from './Pages/Quiz'
+import Leaderboard from './Pages/Leaderboard'
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<AboutUs />} />
+        <Route path='/leaderboard' element={<Leaderboard />} />
         <Route path="/quiz/:id" element={<Quiz />} />
       </Routes>
     </main>
