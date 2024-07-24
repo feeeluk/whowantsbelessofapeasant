@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @media (max-width: 640px) {
+.navBar {
+  background-image: linear-gradient(to bottom, rgb(9, 16,109), rgb(95,68,158));
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+} 
+} */
+
 html {
   background-image: linear-gradient(to bottom right, rgb(9, 16, 109), rgb(95, 68, 158))
 }
