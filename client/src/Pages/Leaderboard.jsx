@@ -21,9 +21,9 @@ export default function Leaderboard() {
       <div>
         {leaderboard.map((item) => {
           return (
-            <h5>
+            <h5 className="border-2 m-1 p-1 text-slate-200">
               {item.user} - {item.quiz} - {item.type} - {item.status} -{" "}
-              {item.score} - {item.progress}
+              £{item.score} - Question: {item.progress}
             </h5>
           );
         })}

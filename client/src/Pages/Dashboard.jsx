@@ -24,12 +24,12 @@ export default function Dashboard() {
     <div>
       <div>
         <h1 className="text-5xl flex flex-row items-center  text-slate-200">
-          {user.user_name}
+          Username: {user.user_name}
         </h1>
       </div>
       <div className="flex flex-col py-5 text-slate-200">
-        <p className="py-5">{user.user_bio}</p>
-        <p className="py-5">{user.user_favourite_subject}</p>
+        <p className="py-5">Bio: {user.user_bio}</p>
+        <p className="py-5">Favorite subject: {user.user_favourite_subject}</p>
       </div>
     </div>
   );

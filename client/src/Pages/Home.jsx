@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./home.css"
 
 export function Home() {
   let [quiz, setQuiz] = useState([]);
@@ -19,14 +20,16 @@ export function Home() {
         <h1 className="text-md">Home</h1>
         <p className="text-lg">To play a quiz you must first be signed in.</p>
       </section>
-      <div className="grid grid-cols-4  text-slate-200">
+      <div className="flex flex-col font-bold py-2 px-4 rounded-full text-slate-200">
         {quiz.map((item) => {
           return (
+            <div className="flex flex-col">
             <Link to={`/quiz/${item.quiz_id}`} key={item.quiz_id}>
-              <h1>
-                {item.quiz_name} - {item.category_name}
-              </h1>
+              <div className="flex flex-col border-2 m-1 p-1">
+                <button>{item.quiz_name} - {item.category_name}</button>
+              </div>
             </Link>
+            </div>
           );
         })}
       </div>
