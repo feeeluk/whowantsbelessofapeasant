@@ -17,10 +17,11 @@ import Gameover from './Pages/Gameover'
 export default function App() {
 
   return (
-    <main>
-      <div>
+    <main className="w-full h-full grid grid-rows-5 grid-cols-5 gap-5 sm:grid-cols-3 sm:grid-rows-3">
+      <div className="col-start-2 col-span-3">
         <NavBar />
       </div>
+      <div className="col-start-2 col-span-3">
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<AboutUs />} />
@@ -32,6 +33,7 @@ export default function App() {
         <Route path='/completed' element={<Completed />} />
         <Route path='/gameover' element={<Gameover />} />
       </Routes>
+      </div>
     </main>
 
   )

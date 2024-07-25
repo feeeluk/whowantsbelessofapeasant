@@ -3,8 +3,8 @@ import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
 
-
-const PORT = 7070;
+// change this back to 7070 before we commit
+const PORT = 4040;
 const app = express();
 
 app.use(express.json());
