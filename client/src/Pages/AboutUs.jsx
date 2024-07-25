@@ -17,7 +17,7 @@ export function AboutUs() {
 
         <p className="py-5">
           Who Wants to Be Less of A Peasant should always be fun, play
-          responsibly.
+          responsiblyyyyyyyyyyyyyyyyyksjhksjgs.
         </p>
       </div>
     </div>
