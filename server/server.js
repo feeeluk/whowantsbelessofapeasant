@@ -4,7 +4,7 @@ import pg from "pg";
 import dotenv from "dotenv";
 
 // change this back to 7070 before we commit
-const PORT = 4040;
+const PORT = 7070;
 const app = express();
 
 app.use(express.json());
@@ -16,6 +16,15 @@ const db = new pg.Pool({
 });
 
 
+// POST ****************************************************************************
+app.post('/result', async (request, response) => {
+
+    const {userId, quizId, statusId, question, score} = request.body
+    console.log('REQUEST BODY:', request.body)
+
+    const result = await db.query(`INSERT INTO user_quizzes (user_quiz_user_id, user_quiz_quiz_id, user_quiz_status_id, user_quiz_score, user_quiz_progress) VALUES ($1, $2, $3, $4, $5)`, [userId, quizId ,statusId , question , score])
+    response.send('Score submitted!')
+})
 
 // GET ****************************************************************************
 app.get('/', (request, response) => {

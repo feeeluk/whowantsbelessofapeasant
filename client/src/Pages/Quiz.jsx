@@ -1,28 +1,34 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import {useAuth} from "@clerk/clerk-react"
 export default function Quiz() {
   let [quiz, setQuiz] = useState(null);
   let [question, setQuestion] = useState(0);
   let [score, setScore] = useState(0);
 
   const { id } = useParams();
+  const {userId} = useAuth()
 
   function handleAnswerQuestion(answer) {
-    if (
-      answer === `${quiz[question].questions_final_answer}` &&
-      question === 14
-    ) {
+    // finished the game will full marks
+    if (answer === `${quiz[question].questions_final_answer}` && question === 14) {
       window.location.href = "http://localhost:5173/completed";
+      submitScore(21, 15, 2)
     } else if (answer === `${quiz[question].questions_final_answer}`) {
+      // answered a question
       setScore(score + quiz[question].questions_value);
       setQuestion(question + 1);
+
     } else {
+      // failed to answer correctly
+      submitScore(score, question - 1, 4)
       window.location.href = "http://localhost:5173/gameover";
     }
   }
 
   function exitQuiz() {
+    // they chose to exit early. 
+    submitScore(score, question - 1, 3)
     window.location.href = "http://localhost:5173/exit";
   }
 
@@ -35,6 +41,32 @@ export default function Quiz() {
       setQuiz(quizData.reverse());
     }
   }, [question]);
+
+  /*
+  currentQuestion - 1 if wrong, 15 if all correct
+  */
+
+  async function submitScore(scoreDetails, currentQuestion, statusId) {
+    const result = await fetch(`http://localhost:7070/users/${userId}`)
+    const userInfoFromDatabase = await result.json()
+
+    //console.log(id[0].user_id)
+
+    console.log('submitting score')
+    const score = await fetch(`http://localhost:7070/result`, {
+      method: "POST",
+      headers : {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        userId: userInfoFromDatabase[0].user_id,
+        quizId: id,
+        statusId: statusId,
+        question: currentQuestion,
+        score: scoreDetails
+      })
+    })
+  }
 
   return (
     <div className="text-lg text-slate-300">
