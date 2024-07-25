@@ -1,7 +1,4 @@
-import { NavBar } from "../components/NavBar";
-
 export function AboutUs() {
-
 
     return (
         <div className="px-7">

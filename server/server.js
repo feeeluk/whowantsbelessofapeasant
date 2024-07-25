@@ -54,16 +54,11 @@ app.post("/sign-up", async (request, response) => {
 
 });
 
-//user_name, user_clerk_id, user_bio, user_favourite_subject
-
-    response.json({message: `Root`})
-})
-
 
 app.get('/quiz/:id', async(request, response) =>{
     const id = request.params.id
     const quizDetails = await db.query(`
-        SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
+        SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_value, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
         FROM quizzes
         JOIN categories
         ON quizzes.quiz_category_id = categories.category_id

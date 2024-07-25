@@ -10,6 +10,9 @@ import Quiz from './Pages/Quiz'
 import Leaderboard from './Pages/Leaderboard'
 import SignUpPage from './Pages/SignUp'
 import Dashboard from './Pages/Dashboard'
+import Exit from './Pages/Exit'
+import Completed from './Pages/Completed'
+import Gameover from './Pages/Gameover'
 
 export default function App() {
 
@@ -25,6 +28,9 @@ export default function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path="/quiz/:id" element={<Quiz />} />
         <Route path='/sign-up' element={<SignUpPage />} />
+        <Route path='/exit' element={<Exit />} />
+        <Route path='/completed' element={<Completed />} />
+        <Route path='/gameover' element={<Gameover />} />
       </Routes>
     </main>
 
