@@ -33,7 +33,7 @@ export default function SignUpPage() {
     // POST to express
   }
   return (
-    <div className="flex flex-col py-5 text-slate-200">
+    <div className="flex flex-col py-5 text-sky-500">
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="user_name">Username: </label>
         <input

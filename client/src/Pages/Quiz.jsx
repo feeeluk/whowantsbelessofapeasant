@@ -45,7 +45,7 @@ export default function Quiz() {
       {quiz ? (
         <div className="">
           <h2>Question number: {question + 1} / 15</h2>
-          <h2>Question score: {quiz[question].questions_value}pts</h2>
+          <h2>Question score: £{quiz[question].questions_value}</h2>
           <h2>Question: {quiz[question].questions_question}</h2>
           <div className="grid grid-cols-2 grid-rows-2 place-items-center max-w-96 place-content-center">
             <button
