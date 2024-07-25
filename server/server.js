@@ -43,19 +43,19 @@ app.post("/sign-up", async (request, response) => {
         VALUES ($1, $2, $3, $4) `, [user_name, user_clerk_id, user_bio, user_favourite_subject]);
     response.send("Thanks for submitting");
 
-    await db.query(
-        `
-    INSERT INTO wkseven_reviews (title, content, username_id, relationship_id, category_id)
-    VALUES ($1, $2, $3, $4, $5)
-  `,
+    //     await db.query(
+    //         `
+    //     INSERT INTO wkseven_reviews (title, content, username_id, relationship_id, category_id)
+    //     VALUES ($1, $2, $3, $4, $5)
+    //   `,
 
-        [title, content, usernameId, relationship, category]
-    );
+    //         [title, content, usernameId, relationship, category]
+    //     );
 
 });
 
 
-app.get('/quiz/:id', async(request, response) =>{
+app.get('/quiz/:id', async (request, response) => {
     const id = request.params.id
     const quizDetails = await db.query(`
         SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_value, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
@@ -65,29 +65,29 @@ app.get('/quiz/:id', async(request, response) =>{
         JOIN questions
         ON questions.questions_quiz_id = quizzes.quiz_id
         WHERE quiz_id = $1`, [id])
-        response.json(quizDetails.rows)
-    })
+    response.json(quizDetails.rows)
+})
 
 
 
-app. get('/quizzes', async (request, response) => {
-    try{
+app.get('/quizzes', async (request, response) => {
+    try {
         const quizzes = await db.query(`
                                     SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name
                                     FROM quizzes
                                     JOIN categories
                                     ON quizzes.quiz_category_id = category_id
                                     `)
-        
+
         response.json(quizzes.rows)
     }
-     catch (error){
+    catch (error) {
         response.json(error)
-     }
+    }
 })
 
-app. get('/quiz_details', async (request, response) => {
-    try{
+app.get('/quiz_details', async (request, response) => {
+    try {
         const allQuizDetails = await db.query(`
                                     SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
                                     FROM quizzes
@@ -97,16 +97,16 @@ app. get('/quiz_details', async (request, response) => {
                                     ON questions.questions_quiz_id = quizzes.quiz_id
                                     WHERE quiz_id != 0
                                     `)
-        
+
         response.json(allQuizDetails.rows)
     }
-     catch (error){
+    catch (error) {
         response.json(error)
-     }
+    }
 })
 
-app. get('/leaderboard', async (request, response) => {
-    try{
+app.get('/leaderboard', async (request, response) => {
+    try {
         const data = await db.query(`
                                     SELECT users.user_name AS user, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
                                     FROM user_quizzes
@@ -127,12 +127,12 @@ app. get('/leaderboard', async (request, response) => {
 
                                     ORDER BY user_quizzes.user_quiz_score DESC
                                     `)
-        
+
         response.json(data.rows)
     }
-     catch (error){
+    catch (error) {
         response.json(error)
-     }
+    }
 })
 
 
