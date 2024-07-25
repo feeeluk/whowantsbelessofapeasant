@@ -14,7 +14,7 @@ export default function Leaderboard() {
 
   return (
     <div className="px-7">
-      <section className="text-5xl flex flex-row items-center  text-slate-200">
+      <section className="text-5xl flex flex-row items-center  text-slate-200 mt-12">
         <h1>Leaderboard</h1>
       </section>
 

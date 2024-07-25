@@ -1,7 +1,7 @@
 export function AboutUs() {
   return (
     <div className="px-7">
-      <section className="text-5xl flex flex-row items-center  text-slate-200">
+      <section className="text-5xl flex flex-row items-center text-slate-200 mt-12">
         <h1>About us</h1>
       </section>
       <div className="flex flex-col py-5 text-lg text-slate-200">
@@ -17,7 +17,7 @@ export function AboutUs() {
 
         <p className="py-5">
           Who Wants to Be Less of A Peasant should always be fun, play
-          responsiblyyyyyyyyyyyyyyyyyksjhksjgs.
+          responsibly.
         </p>
       </div>
     </div>

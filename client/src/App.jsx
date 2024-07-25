@@ -18,7 +18,7 @@ export default function App() {
       <div className="col-start-2 col-span-3">
         <NavBar />
       </div>
-      <div className="row-start-2 col-start-2 col-span-3 sm:flex sm:flex-col row-span-3 bg-slate-700 sm:text-xs">
+      <div className="row-start-2 col-start-2 col-span-3 sm:flex sm:flex-col row-span-3 sm:text-xs">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
