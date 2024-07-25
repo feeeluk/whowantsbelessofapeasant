@@ -11,7 +11,7 @@ export function NavBar() {
     return (
         <div >
             <header className="flex flex-row items-center">
-                <img src={logo} alt="Page logo -  Who wants to be less of a peasant?" />
+                <img src={logo} alt="Page logo -  Who wants to be less of a peasant?" className="w-25 h-25"/>
                 <ol className="flex flex-row items-center">
                     <li><Link to="/" className="p-2.5 text-slate-200 cursor-pointer">Home</Link></li>
                     <li><Link to="/aboutus" className="p-2.5 text-slate-200 cursor-pointer">About Us</Link></li>
