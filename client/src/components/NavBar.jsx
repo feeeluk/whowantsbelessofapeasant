@@ -17,6 +17,7 @@ export function NavBar() {
                     <li><Link to="/aboutus" className="p-2.5 text-slate-200 cursor-pointer">About Us</Link></li>
                     <li><Link to="/leaderboard" className="p-2.5 text-slate-200 cursor-pointer">Leaderboard</Link></li>
                     <li><Link to="/dashboard" className="p-2.5 text-slate-200 cursor-pointer">Dashboard</Link></li>
+                    <li><Link to="/sign-up" className="p-2.5 text-slate-200 cursor-pointer">Sign-up</Link></li>
                 </ol>
                 <div className="flex flex-row-reverse text-white">
                     {/* <li><Link to="/sign-up" className="text-slate-200 cursor-pointer">Sign Up</Link></li> */}
