@@ -14,8 +14,8 @@ export default function Dashboard() {
   }, [userId]);
 
   async function fetchUsers() {
-    // const result = await fetch(`http://localhost:7070/users/user_2jglOHdsCzremH2ATCB4tubuTeC`)
-    const result = await fetch(`http://localhost:7070/users/${userId}`);
+    // const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/user_2jglOHdsCzremH2ATCB4tubuTeC`)
+    const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/${userId}`);
     const userData = await result.json();
     setUser(userData[0]);
   }

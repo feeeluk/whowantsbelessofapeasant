@@ -12,7 +12,7 @@ export default function Quiz() {
   function handleAnswerQuestion(answer) {
     // finished the game will full marks
     if (answer === `${quiz[question].questions_final_answer}` && question === 14) {
-      window.location.href = "http://localhost:5173/completed";
+      window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/completed";
       submitScore(21, 15, 2)
     } else if (answer === `${quiz[question].questions_final_answer}`) {
       // answered a question
@@ -22,21 +22,21 @@ export default function Quiz() {
     } else {
       // failed to answer correctly
       submitScore(score, question - 1, 4)
-      window.location.href = "http://localhost:5173/gameover";
+      window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/gameover";
     }
   }
 
   function exitQuiz() {
     // they chose to exit early. 
     submitScore(score, question - 1, 3)
-    window.location.href = "http://localhost:5173/exit";
+    window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/exit";
   }
 
   useEffect(() => {
     fetchQuiz();
 
     async function fetchQuiz() {
-      const response = await fetch(`http://localhost:7070/quiz/${id}`);
+      const response = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/quiz/${id}`);
       const quizData = await response.json(response.rows);
       setQuiz(quizData.reverse());
     }
@@ -47,13 +47,13 @@ export default function Quiz() {
   */
 
   async function submitScore(scoreDetails, currentQuestion, statusId) {
-    const result = await fetch(`http://localhost:7070/users/${userId}`)
+    const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/${userId}`)
     const userInfoFromDatabase = await result.json()
 
     //console.log(id[0].user_id)
 
     console.log('submitting score')
-    const score = await fetch(`http://localhost:7070/result`, {
+    const score = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/result`, {
       method: "POST",
       headers : {
         "Content-Type": "application/json"

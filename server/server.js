@@ -19,10 +19,10 @@ const db = new pg.Pool({
 // POST ****************************************************************************
 app.post('/result', async (request, response) => {
 
-    const {userId, quizId, statusId, question, score} = request.body
+    const {userId, quizId, statusId, score, question} = request.body
     console.log('REQUEST BODY:', request.body)
 
-    const result = await db.query(`INSERT INTO user_quizzes (user_quiz_user_id, user_quiz_quiz_id, user_quiz_status_id, user_quiz_score, user_quiz_progress) VALUES ($1, $2, $3, $4, $5)`, [userId, quizId ,statusId , question , score])
+    const result = await db.query(`INSERT INTO user_quizzes (user_quiz_user_id, user_quiz_quiz_id, user_quiz_status_id, user_quiz_score, user_quiz_progress) VALUES ($1, $2, $3, $4, $5)`, [userId, quizId ,statusId , score, question])
     response.send('Score submitted!')
 })
 

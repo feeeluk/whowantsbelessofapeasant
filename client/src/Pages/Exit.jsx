@@ -1,6 +1,6 @@
 export default function Exit() {
     function okContinue() {
-      window.location.href = "http://localhost:5173";
+      window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/";
     }
   
     return (

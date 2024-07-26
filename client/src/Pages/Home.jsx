@@ -8,7 +8,7 @@ export function Home() {
     fetchQuizzes();
 
     async function fetchQuizzes() {
-      const response = await fetch("http://localhost:7070/quizzes");
+      const response = await fetch("https://whowantsbelessofapeasant-front.onrender.com/quizzes");
       const quizData = await response.json(response.rows);
       setQuiz(quizData);
     }
