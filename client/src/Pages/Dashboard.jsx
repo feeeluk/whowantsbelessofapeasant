@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   async function fetchUsers() {
     // const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/user_2jglOHdsCzremH2ATCB4tubuTeC`)
-    const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/${userId}`);
+    const result = await fetch(`https://whowantsbelessofapeasant.onrender.com/users/${userId}`);
     const userData = await result.json();
     setUser(userData[0]);
   }

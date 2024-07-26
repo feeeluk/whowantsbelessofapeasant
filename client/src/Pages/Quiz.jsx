@@ -36,7 +36,7 @@ export default function Quiz() {
     fetchQuiz();
 
     async function fetchQuiz() {
-      const response = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/quiz/${id}`);
+      const response = await fetch(`https://whowantsbelessofapeasant.onrender.com/quiz/${id}`);
       const quizData = await response.json(response.rows);
       setQuiz(quizData.reverse());
     }
@@ -47,13 +47,13 @@ export default function Quiz() {
   */
 
   async function submitScore(scoreDetails, currentQuestion, statusId) {
-    const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/${userId}`)
+    const result = await fetch(`https://whowantsbelessofapeasant.onrender.com/users/${userId}`)
     const userInfoFromDatabase = await result.json()
 
     //console.log(id[0].user_id)
 
     console.log('submitting score')
-    const score = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/result`, {
+    const score = await fetch(`https://whowantsbelessofapeasant.onrender.com/result`, {
       method: "POST",
       headers : {
         "Content-Type": "application/json"

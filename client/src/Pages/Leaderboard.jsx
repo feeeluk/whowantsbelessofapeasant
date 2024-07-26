@@ -6,7 +6,7 @@ export default function Leaderboard() {
     fetchLeaderboard();
 
     async function fetchLeaderboard() {
-      const response = await fetch("https://whowantsbelessofapeasant-front.onrender.com/leaderboard");
+      const response = await fetch("https://whowantsbelessofapeasant.onrender.com/leaderboard");
       const leaderboardData = await response.json(response.rows);
       setLeaderboard(leaderboardData);
     }

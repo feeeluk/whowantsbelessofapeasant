@@ -23,7 +23,7 @@ export default function SignUpPage() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    fetch(`https://whowantsbelessofapeasant-front.onrender.com/sign-up`, {
+    fetch(`https://whowantsbelessofapeasant.onrender.com/sign-up`, {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
