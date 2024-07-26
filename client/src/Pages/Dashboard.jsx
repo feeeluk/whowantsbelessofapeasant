@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
 
 export default function Dashboard() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const { userId } = useAuth();
   console.log("Auth", userId);
@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchUsers();
-  }, [userId]);
+  }, []);
 
   async function fetchUsers() {
     // const result = await fetch(`https://whowantsbelessofapeasant-front.onrender.com/users/user_2jglOHdsCzremH2ATCB4tubuTeC`)
