@@ -6,7 +6,7 @@ export default function Leaderboard() {
     fetchLeaderboard();
 
     async function fetchLeaderboard() {
-      const response = await fetch("http://localhost:7070/leaderboard");
+      const response = await fetch("https://whowantsbelessofapeasant-front.onrender.com/leaderboard");
       const leaderboardData = await response.json(response.rows);
       setLeaderboard(leaderboardData);
     }
@@ -22,8 +22,7 @@ export default function Leaderboard() {
         {leaderboard.map((item) => {
           return (
             <h5 className="border-2 m-1 p-1 text-slate-200">
-              {item.user} - {item.quiz} - {item.type} - {item.status} -{" "}
-              £{item.score} - Question: {item.progress}
+              {item.user} - {item.quiz} ({item.type}) - {item.status} - £{item.score} - Question: {item.progress}
             </h5>
           );
         })}
