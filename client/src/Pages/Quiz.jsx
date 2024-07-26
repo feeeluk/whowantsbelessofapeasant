@@ -1,19 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {useAuth} from "@clerk/clerk-react"
+import { useNavigate } from "react-router-dom";
+
 export default function Quiz() {
   let [quiz, setQuiz] = useState(null);
   let [question, setQuestion] = useState(0);
   let [score, setScore] = useState(0);
 
+  const navigate = useNavigate()
   const { id } = useParams();
   const {userId} = useAuth()
 
   function handleAnswerQuestion(answer) {
     // finished the game will full marks
     if (answer === `${quiz[question].questions_final_answer}` && question === 14) {
-      window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/completed";
+      // window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/completed";
       submitScore(21, 15, 2)
+      navigate("/completed")
     } else if (answer === `${quiz[question].questions_final_answer}`) {
       // answered a question
       setScore(score + quiz[question].questions_value);
@@ -22,14 +26,16 @@ export default function Quiz() {
     } else {
       // failed to answer correctly
       submitScore(score, question - 1, 4)
-      window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/gameover";
+      navigate("/gameover")
+      //window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/gameover";
     }
   }
 
   function exitQuiz() {
     // they chose to exit early. 
     submitScore(score, question - 1, 3)
-    window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/exit";
+    //window.location.href = "https://whowantsbelessofapeasant-front.onrender.com/exit";
+    navigate("/exit")
   }
 
   useEffect(() => {
